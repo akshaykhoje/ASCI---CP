@@ -11,4 +11,10 @@ void display(node *);      //node * points to the first node of the list
 int count(node *);
 int delete(node **, int);
 int maxElement(node *);
-int *search(node *p, int key, int *indices);
+int *search(node *p, int key, int *indices);    //returns an array of indices where key is found
+void insert(node **p, int index, int x);       //inserts anywhere in the list
+void reverse(node **p);
+int isLinkSorted(node *);
+void concatenate(node **, node **);   //joins two linkedlists E2E
+void *merge(node **, node **);
+int isLoopPresent(node **);
