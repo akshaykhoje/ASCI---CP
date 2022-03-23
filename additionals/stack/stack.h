@@ -7,4 +7,6 @@ typedef struct node
 void init(node **, node **, int);
 void push(node **, int);
 void display(node *);
-int pop(node **);
+int pop(node **, node **);
+int isStackFull();
+int peek(node *);

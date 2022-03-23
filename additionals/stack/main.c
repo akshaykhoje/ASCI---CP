@@ -7,11 +7,18 @@ int main()
     node *sBase = NULL;      //base of the stack
     node *top = NULL;        //pointer to top of the stack
     init(&sBase, &top, 5);
-    push(&sBase, 10);
-    push(&sBase, 20);
-    push(&sBase, 30);
     display(sBase);
-    printf("%d ", pop(&sBase));
-    printf("%d ", pop(&sBase));
+    push(&top, 10);
+    push(&top, 20);
+    push(&top, 30);
+    push(&top, 40);
+    push(&top, 50);
+    push(&top, 60);
+    printf("Peek : %d \n", peek(top));
+    display(sBase);
+    printf("popped out : %d \n", pop(&sBase, &top));
+    printf("popped out : %d \n", pop(&sBase, &top));
+    printf("Peek : %d \n", peek(top));
+
     return 0;
 }

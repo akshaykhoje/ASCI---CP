@@ -21,9 +21,10 @@ void push(node **top, int x)
         return;
     }
     nn->data = x;
-    nn->next = *top;
+    nn->next = NULL;
+    (*top)->next = nn;
     *top = nn;
-    return; 
+    return;
 }
 
 void display(node *base)
@@ -37,21 +38,38 @@ void display(node *base)
     return;
 }
 
-int pop(node **top)
+int pop(node **base, node **top)
 {
-    node *temp;
     int x = INT_MIN;
-    if (!(*top))
+    node *temp, *back;
+    temp = *base;
+    back = NULL;
+    while (temp->next)
     {
-        printf("Stack is full\n");
+        back = temp;
+        temp = temp->next;
+    }
+    x = temp->data;
+    back->next = NULL;
+    *top = back;
+    free(temp);
+    return x;
+}
+
+int isStackFull()
+{
+    node *new = (node *)malloc(sizeof(node));
+    return new == NULL;
+}
+
+int peek(node *top)
+{
+    int x = INT_MIN;
+    if (!top)
+    {
+        printf("Stack is empty\n");
         return x;
     }
-    else
-    {
-        temp = *top;
-        *top = (*top)->next;
-        x = temp->data;
-        free(temp);
-    }
+    x = top->data;
     return x;
 }
